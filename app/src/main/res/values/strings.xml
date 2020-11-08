@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">AA_PetProject</string>
+    <string name="app_name" translatable="false">AA_PetProject</string>
+    <string name="login_button" translatable="false">LOGIN</string>
+    <string name="login_edit_text" translatable="false">Login</string>
+    <string name="password_edit_text" translatable="false">Password</string>
+
+    <string name="hello">Hello, %s</string>
+    <string name="wrong_password_error">Wrong password</string>
+    <string name="login_empty_error">Login is empty</string>
 </resources>

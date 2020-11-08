@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Привет, %s</string>
+    <string name="wrong_password_error">Неверный пароль!</string>
+    <string name="login_empty_error">Введите имя пользователя</string>
+</resources>
