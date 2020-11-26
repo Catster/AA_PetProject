@@ -26,7 +26,9 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun login() {
-        if (binding.loginEt.text.isEmpty()) {
+        val intent = Intent(this, MovieDetailsActivity::class.java)
+        startActivity(intent)
+        /*if (binding.loginEt.text.isEmpty()) {
             Toast.makeText(this, getString(R.string.login_empty_error), Toast.LENGTH_LONG).show()
             return
         }
@@ -39,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
         else {
             Toast.makeText(this, getString(R.string.wrong_password_error), Toast.LENGTH_LONG).show()
-        }
+        }*/
     }
 }
 
