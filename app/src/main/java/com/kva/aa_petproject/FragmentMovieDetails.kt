@@ -28,10 +28,13 @@ class FragmentMovieDetails : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_movie_details, container, false)
         fragmentMovieDetailsBinding = FragmentMovieDetailsBinding.bind(view)
+        val adapter = ActorsListRvAdapter(movieDetails)
+        fragmentMovieDetailsBinding?.rvMovieDetailsListActors?.adapter = adapter
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        fragmentMovieDetailsBinding?.tvBack?.setOnClickListener { navigateBack() }
         fragmentMovieDetailsBinding?.ivMovieImage?.let {
             Glide
                 .with(this)
@@ -44,6 +47,16 @@ class FragmentMovieDetails : Fragment() {
         fragmentMovieDetailsBinding?.tvGenres?.text = movieDetails?.movieGenre
         fragmentMovieDetailsBinding?.rbReviewRate?.rating = movieDetails?.rating ?: 0f
         fragmentMovieDetailsBinding?.tvReview?.text = resources.getString(R.string.reviews, movieDetails?.reviews.toString())
+    }
+
+    override fun onDestroyView() {
+        fragmentMovieDetailsBinding?.rvMovieDetailsListActors?.adapter = null
+        fragmentMovieDetailsBinding = null
+        super.onDestroyView()
+    }
+
+    private fun navigateBack() {
+        parentFragmentManager.popBackStack()
     }
 
     companion object {

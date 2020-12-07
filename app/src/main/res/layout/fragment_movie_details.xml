@@ -41,6 +41,7 @@
             app:layout_constraintGuide_begin="56dp" />
 
         <TextView
+            android:id="@+id/tv_back"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:drawablePadding="8dp"
@@ -162,112 +163,16 @@
             app:layout_constraintStart_toStartOf="@id/guidelineCardViewStart"
             app:layout_constraintTop_toBottomOf="@id/tv_film_description" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iv_actor_poster_1"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_movie_details_list_actors"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/actor_image_margin_top"
-            android:layout_marginEnd="@dimen/actor_image_margin_end"
-            android:adjustViewBounds="true"
-            android:src="@drawable/iron_man"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toStartOf="@id/iv_actor_poster_2"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineCardViewStart"
             app:layout_constraintTop_toBottomOf="@id/tv_cast_description_header"
-            app:shapeAppearanceOverlay="@style/circleImageView"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/tv_actor_name_1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/actor_name_margin_top"
-            android:text="@string/iron_man_name"
-            android:textAppearance="@style/Text.Header"
-            app:layout_constraintEnd_toEndOf="@id/iv_actor_poster_1"
-            app:layout_constraintStart_toStartOf="@id/iv_actor_poster_1"
-            app:layout_constraintTop_toBottomOf="@id/iv_actor_poster_1" />
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iv_actor_poster_2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/actor_image_margin_top"
-            android:layout_marginEnd="@dimen/actor_image_margin_end"
-            android:adjustViewBounds="true"
-            android:src="@drawable/cap"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toStartOf="@id/iv_actor_poster_3"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/iv_actor_poster_1"
-            app:layout_constraintTop_toBottomOf="@id/tv_cast_description_header"
-            app:shapeAppearanceOverlay="@style/circleImageView"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/tv_actor_name_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/actor_name_margin_top"
-            android:text="@string/cap_name"
-            android:textAppearance="@style/Text.Header"
-            app:layout_constraintEnd_toEndOf="@id/iv_actor_poster_2"
-            app:layout_constraintStart_toStartOf="@id/iv_actor_poster_2"
-            app:layout_constraintTop_toBottomOf="@id/iv_actor_poster_2" />
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iv_actor_poster_3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/actor_image_margin_top"
-            android:layout_marginEnd="@dimen/actor_image_margin_end"
-            android:adjustViewBounds="true"
-            android:src="@drawable/hulk"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toStartOf="@+id/iv_actor_poster_4"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/iv_actor_poster_2"
-            app:layout_constraintTop_toBottomOf="@id/tv_cast_description_header"
-            app:shapeAppearanceOverlay="@style/circleImageView"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/tv_actor_name_3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/actor_name_margin_top"
-            android:text="@string/hulk_name"
-            android:textAppearance="@style/Text.Header"
-            app:layout_constraintEnd_toEndOf="@id/iv_actor_poster_3"
-            app:layout_constraintStart_toStartOf="@id/iv_actor_poster_3"
-            app:layout_constraintTop_toBottomOf="@id/iv_actor_poster_3" />
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iv_actor_poster_4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/actor_image_margin_top"
-            android:adjustViewBounds="true"
-            android:src="@drawable/tor"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/iv_actor_poster_3"
-            app:layout_constraintTop_toBottomOf="@id/tv_cast_description_header"
-            app:shapeAppearanceOverlay="@style/circleImageView"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/tv_actor_name_4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/actor_name_margin_top"
-            android:text="@string/tor_name"
-            android:textAppearance="@style/Text.Header"
-            app:layout_constraintEnd_toEndOf="@id/iv_actor_poster_4"
-            app:layout_constraintStart_toStartOf="@id/iv_actor_poster_4"
-            app:layout_constraintTop_toBottomOf="@id/iv_actor_poster_4" />
+            tools:listitem="@layout/movie_details_actors_list_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
