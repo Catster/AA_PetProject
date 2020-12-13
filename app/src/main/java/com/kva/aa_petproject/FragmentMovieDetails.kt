@@ -12,7 +12,9 @@ import com.kva.aa_petproject.databinding.FragmentMovieDetailsBinding
 private const val MOVIE_PARAM = "MOVIE_PARAM"
 
 class FragmentMovieDetails : Fragment() {
-    private var fragmentMovieDetailsBinding: FragmentMovieDetailsBinding? = null
+    private var _binding: FragmentMovieDetailsBinding? = null
+    private val binding get() = _binding!!
+
     var movieDetails: Movie? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,31 +29,33 @@ class FragmentMovieDetails : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_movie_details, container, false)
-        fragmentMovieDetailsBinding = FragmentMovieDetailsBinding.bind(view)
+        _binding = FragmentMovieDetailsBinding.bind(view)
         val adapter = ActorsListRvAdapter(movieDetails)
-        fragmentMovieDetailsBinding?.rvMovieDetailsListActors?.adapter = adapter
+        binding.rvMovieDetailsListActors.adapter = adapter
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        fragmentMovieDetailsBinding?.tvBack?.setOnClickListener { navigateBack() }
-        fragmentMovieDetailsBinding?.ivMovieImage?.let {
-            Glide
-                .with(this)
-                .load(movieDetails?.detailPoster)
-                .into(it)
+        with(binding) {
+            tvBack.setOnClickListener { navigateBack() }
+            tvPgInfo.text = movieDetails?.rated
+            tvName.text = movieDetails?.nameMovie
+            tvFilmDescription.text = movieDetails?.description
+            tvGenres.text = movieDetails?.movieGenre
+            rbReviewRate.rating = movieDetails?.rating ?: 0f
+            tvReview.text = resources.getString(R.string.reviews, movieDetails?.reviews.toString())
+
+            binding.ivMovieImage.let {
+                Glide.with(requireContext())
+                    .load(movieDetails?.detailPoster)
+                    .into(it)
+            }
         }
-        fragmentMovieDetailsBinding?.tvPgInfo?.text = movieDetails?.rated
-        fragmentMovieDetailsBinding?.tvName?.text = movieDetails?.nameMovie
-        fragmentMovieDetailsBinding?.tvFilmDescription?.text = movieDetails?.description
-        fragmentMovieDetailsBinding?.tvGenres?.text = movieDetails?.movieGenre
-        fragmentMovieDetailsBinding?.rbReviewRate?.rating = movieDetails?.rating ?: 0f
-        fragmentMovieDetailsBinding?.tvReview?.text = resources.getString(R.string.reviews, movieDetails?.reviews.toString())
     }
 
     override fun onDestroyView() {
-        fragmentMovieDetailsBinding?.rvMovieDetailsListActors?.adapter = null
-        fragmentMovieDetailsBinding = null
+        binding.rvMovieDetailsListActors.adapter = null
+        _binding = null
         super.onDestroyView()
     }
 

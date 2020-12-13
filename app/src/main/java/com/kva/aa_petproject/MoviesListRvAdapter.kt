@@ -9,6 +9,8 @@ import com.bumptech.glide.Glide
 import com.kva.aa_petproject.data.Movie
 import com.kva.aa_petproject.databinding.MovieListItemBinding
 import com.kva.aa_petproject.databinding.MoviesListHeaderBinding
+import com.kva.aa_petproject.exceptions.ViewTypeNotFoundException
+import java.lang.ClassCastException
 
 private const val ITEM_VIEW_TYPE_HEADER = 0
 private const val ITEM_VIEW_TYPE_ITEM = 1
@@ -25,7 +27,7 @@ class MoviesListRvAdapter(
         return when (viewType) {
             ITEM_VIEW_TYPE_HEADER -> TextHeaderViewHolder.from(parent)
             ITEM_VIEW_TYPE_ITEM -> MoviesListViewHolder.from(parent)
-            else -> throw ClassCastException("Unknown viewType $viewType")
+            else -> throw ViewTypeNotFoundException("Unknown viewType $viewType")
         }
     }
 
@@ -33,9 +35,8 @@ class MoviesListRvAdapter(
         return if(position == 0) ITEM_VIEW_TYPE_HEADER else ITEM_VIEW_TYPE_ITEM
     }
 
-    override fun getItemCount(): Int {
-        return movies.size + 1
-    }
+    //list size + header item
+    override fun getItemCount() = movies.size + 1
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {

@@ -1,26 +1,26 @@
 <resources>
-    <string name="app_name" translatable="false">AA_PetProject</string>
-    <string name="login_button" translatable="false">LOGIN</string>
-    <string name="login_edit_text" translatable="false">Login</string>
-    <string name="password_edit_text" translatable="false">Password</string>
+    <string name="app_name">AA_PetProject</string>
+    <string name="login_button">LOGIN</string>
+    <string name="login_edit_text">Login</string>
+    <string name="password_edit_text">Password</string>
 
     <string name="hello">Hello, %s</string>
     <string name="wrong_password_error">Wrong password</string>
     <string name="login_empty_error">Login is empty</string>
-    <string name="back" translatable="false">Back</string>
-    <string name="avengers_end_game" translatable="false">Avengers: End Game</string>
-    <string name="pg_info" translatable="false">13+</string>
-    <string name="genre" translatable="false">Action, Adventure, Fantasy</string>
-    <string name="reviews" translatable="false">%s REVIEWS</string>
-    <string name="film_description_header" translatable="false">Storyline</string>
-    <string name="film_description" translatable="false">After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.</string>
-    <string name="cast_header" translatable="false">Cast</string>
-    <string name="iron_man_name" translatable="false">Robert Downey Jr.</string>
-    <string name="cap_name" translatable="false">Chris Evans</string>
-    <string name="hulk_name" translatable="false">Mark Ruffalo</string>
-    <string name="tor_name" translatable="false">Chris Hemsworth</string>
+    <string name="back">Back</string>
+    <string name="avengers_end_game">Avengers: End Game</string>
+    <string name="pg_info">13+</string>
+    <string name="genre">Action, Adventure, Fantasy</string>
+    <string name="reviews">%s REVIEWS</string>
+    <string name="film_description_header">Storyline</string>
+    <string name="film_description">After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.</string>
+    <string name="cast_header">Cast</string>
+    <string name="iron_man_name">Robert Downey Jr.</string>
+    <string name="cap_name">Chris Evans</string>
+    <string name="hulk_name">Mark Ruffalo</string>
+    <string name="tor_name">Chris Hemsworth</string>
     <string name="movies_list_title">Movies list</string>
-    <string name="film_duration" translatable="false">%s MIN</string>
+    <string name="film_duration">%s MIN</string>
 </resources>
 
 

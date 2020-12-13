@@ -3,9 +3,6 @@ package com.kva.aa_petproject.utils
 import android.content.Context
 import android.util.DisplayMetrics
 
-
-
-
 class Utils {
 
     companion object {

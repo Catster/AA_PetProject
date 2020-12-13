@@ -4,7 +4,12 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemDecoration (val paddingLeft: Int = 0, val paddingRight: Int = 0, val paddingTop: Int = 0, val paddingBottom: Int = 0) : RecyclerView.ItemDecoration() {
+class ItemDecoration(
+    val paddingLeft: Int = 0,
+    val paddingRight: Int = 0,
+    val paddingTop: Int = 0,
+    val paddingBottom: Int = 0
+) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
         outRect: Rect, view: View, parent: RecyclerView,
