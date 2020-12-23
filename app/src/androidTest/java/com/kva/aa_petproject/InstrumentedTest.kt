@@ -1,18 +1,6 @@
 package com.kva.aa_petproject
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.RootMatchers.withDecorView
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withText
-import androidx.test.rule.ActivityTestRule
-import com.agoda.kakao.common.utilities.getResourceString
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
-import com.kva.aa_petproject.screen.MainScreen
-import com.kva.aa_petproject.screen.NameScreen
-import org.hamcrest.Matchers.not
-import org.junit.Rule
-import org.junit.Test
 
 
 /**
@@ -21,7 +9,7 @@ import org.junit.Test
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class InstrumentedTest : TestCase() {
-    private val secretPassword = "1234"
+    /*private val secretPassword = "1234"
     private val wrongPassword = "9999"
     private val expectedUserName = "Иван Иванов"
     @get:Rule
@@ -105,5 +93,5 @@ class InstrumentedTest : TestCase() {
             }
         }
     }
-
+*/
 }

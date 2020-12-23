@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view_movie"
+    android:layout_width="match_parent"
+    android:layout_height="310dp"
+    app:cardBackgroundColor="@color/background"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:strokeColor="@color/grey"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineCardViewStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/movies_list_card_view_margin" />
+
+        <ImageView
+            android:id="@+id/iv_movie_poster"
+            android:layout_width="0dp"
+            android:layout_height="246dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="246dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_movie_image_mask"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_pg_info"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="8dp"
+            android:alpha="0.9"
+            android:background="@drawable/ic_pg_shape_24dp"
+            android:gravity="center"
+            android:text="@string/pg_info"
+            android:textAppearance="@style/Text"
+            app:layout_constraintStart_toEndOf="@id/guidelineCardViewStart"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_like_unselected"
+            app:layout_constraintBottom_toBottomOf="@id/tv_pg_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_pg_info"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_genres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="230dp"
+            android:gravity="center_vertical"
+            android:text="@string/genre"
+            android:textAppearance="@style/GenresTextCardView"
+            app:layout_constraintStart_toEndOf="@id/guidelineCardViewStart"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.kva.aa_petproject.SvgRatingBar
+            android:id="@+id/rb_review_rate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:minHeight="8dp"
+            android:numStars="5"
+            android:progressDrawable="@drawable/rating_bar_movies_list"
+            android:rating="4.0"
+            android:stepSize="0.01"
+            app:layout_constraintStart_toEndOf="@id/guidelineCardViewStart"
+            app:layout_constraintTop_toBottomOf="@id/tv_genres" />
+
+        <TextView
+            android:id="@+id/tv_review"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/reviews"
+            android:textAppearance="@style/Text.Review"
+            android:textSize="8sp"
+            app:layout_constraintBottom_toBottomOf="@id/rb_review_rate"
+            app:layout_constraintStart_toEndOf="@id/rb_review_rate"
+            app:layout_constraintTop_toTopOf="@id/rb_review_rate"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/tv_film_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/avengers_end_game"
+            android:textAppearance="@style/Text.Large"
+            app:layout_constraintStart_toEndOf="@id/guidelineCardViewStart"
+            app:layout_constraintTop_toBottomOf="@id/rb_review_rate" />
+
+        <TextView
+            android:id="@+id/tv_film_duration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/film_duration"
+            android:textAppearance="@style/Text.Review"
+            android:textSize="8sp"
+            app:layout_constraintStart_toEndOf="@id/guidelineCardViewStart"
+            app:layout_constraintTop_toBottomOf="@id/tv_film_name"
+            tools:ignore="SmallSp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -5,4 +5,5 @@
     <dimen name="actor_image_margin_top">8dp</dimen>
     <dimen name="actor_image_margin_end">8dp</dimen>
     <dimen name="actor_name_margin_top">6dp</dimen>
+    <dimen name="movies_list_card_view_margin">6dp</dimen>
 </resources>
