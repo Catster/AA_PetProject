@@ -6,16 +6,16 @@ import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.kva.aa_petproject.data.Actor
-import com.kva.aa_petproject.data.Movie
+import com.kva.aa_petproject.data.ActorData
+import com.kva.aa_petproject.data.MovieData
 import com.kva.aa_petproject.databinding.MovieDetailsActorsListItemBinding
 
 class ActorsListRvAdapter(
-    movie: Movie?,
+    movie: MovieData?,
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val actors: List<Actor>? = movie?.listOfActors
+    private val actors: List<ActorData>? = movie?.actors
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ActorsListViewHolder.from(parent)
@@ -38,13 +38,13 @@ class ActorsListRvAdapter(
         RecyclerView.ViewHolder(binding.root) {
         val res: Resources = itemView.context.resources
 
-        fun bind(item: Actor) {
+        fun bind(item: ActorData) {
             Glide
                 .with(itemView)
-                .load(item.photoActor)
+                .load(item.imageUrl)
                 .error(ResourcesCompat.getDrawable(res, R.drawable.image_error, null))
                 .into(binding.ivActorPoster)
-            binding.tvActorName.text = item.nameActor
+            binding.tvActorName.text = item.name
 
         }
 

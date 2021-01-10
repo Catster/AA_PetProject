@@ -9,7 +9,7 @@
     <string name="login_empty_error">Login is empty</string>
     <string name="back">Back</string>
     <string name="avengers_end_game">Avengers: End Game</string>
-    <string name="pg_info">13+</string>
+    <string name="pg_info">%s+</string>
     <string name="genre">Action, Adventure, Fantasy</string>
     <string name="reviews">%s REVIEWS</string>
     <string name="film_description_header">Storyline</string>

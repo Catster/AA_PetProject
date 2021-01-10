@@ -2,7 +2,7 @@ package com.kva.aa_petproject
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.kva.aa_petproject.data.Movie
+import com.kva.aa_petproject.data.MovieData
 import com.kva.aa_petproject.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), FragmentMoviesListListener {
@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity(), FragmentMoviesListListener {
         setContentView(binding.root)
     }
 
-    override fun onClick(movie: Movie) {
+    override fun onClick(movie: MovieData) {
         supportFragmentManager.beginTransaction()
             .apply {
                 replace(

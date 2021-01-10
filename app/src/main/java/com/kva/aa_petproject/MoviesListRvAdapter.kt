@@ -6,18 +6,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.kva.aa_petproject.data.Movie
+import com.kva.aa_petproject.data.MovieData
 import com.kva.aa_petproject.databinding.MovieListItemBinding
 import com.kva.aa_petproject.databinding.MoviesListHeaderBinding
 import com.kva.aa_petproject.exceptions.ViewTypeNotFoundException
-import java.lang.ClassCastException
 
 private const val ITEM_VIEW_TYPE_HEADER = 0
 private const val ITEM_VIEW_TYPE_ITEM = 1
 
 class MoviesListRvAdapter(
     context: Context,
-    private val movies: List<Movie>,
+    private val moviesDataList: List<MovieData>,
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -36,12 +35,12 @@ class MoviesListRvAdapter(
     }
 
     //list size + header item
-    override fun getItemCount() = movies.size + 1
+    override fun getItemCount() = moviesDataList.size + 1
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is MoviesListViewHolder -> {
-                val currentItem = movies[position - 1]
+                val currentItem = moviesDataList[position - 1]
                 holder.bind(currentItem)
                 holder.itemView.setOnClickListener {
                     listener?.onClick(movie = currentItem)
@@ -66,19 +65,19 @@ class MoviesListRvAdapter(
         RecyclerView.ViewHolder(binding.root) {
         val res: Resources = itemView.context.resources
 
-        fun bind(item: Movie) {
+        fun bind(item: MovieData) {
             Glide
                 .with(itemView)
-                .load(item.poster)
+                .load(item.imageUrl)
                 .into(binding.ivMoviePoster)
-            binding.tvFilmName.text = item.nameMovie
-            binding.tvPgInfo.text = item.rated
-            binding.tvGenres.text = item.movieGenre
-            binding.rbReviewRate.rating = item.rating
+            binding.tvFilmName.text = item.title
+            binding.tvPgInfo.text = item.pgAge.toString()
+            binding.tvGenres.text = item.genres.joinToString { it.name }
+            binding.rbReviewRate.rating = item.rating.toFloat()
             binding.tvReview.text =
-                res.getString(R.string.reviews, item.reviews.toString())
+                res.getString(R.string.reviews, item.reviewCount.toString())
             binding.tvFilmDuration.text =
-                res.getString(R.string.film_duration, item.movieDuration.toString())
+                res.getString(R.string.film_duration, item.runningTime.toString())
         }
 
         companion object {

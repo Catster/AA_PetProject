@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.kva.aa_petproject.data.Movie
+import com.kva.aa_petproject.data.MovieData
 import com.kva.aa_petproject.databinding.FragmentMovieDetailsBinding
 
 private const val MOVIE_PARAM = "MOVIE_PARAM"
@@ -15,12 +15,12 @@ class FragmentMovieDetails : Fragment() {
     private var _binding: FragmentMovieDetailsBinding? = null
     private val binding get() = _binding!!
 
-    var movieDetails: Movie? = null
+    var movieDetails: MovieData? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            movieDetails = it.getParcelable(MOVIE_PARAM) as? Movie
+            movieDetails = it.getParcelable(MOVIE_PARAM) as? MovieData
         }
     }
 
@@ -38,16 +38,18 @@ class FragmentMovieDetails : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         with(binding) {
             tvBack.setOnClickListener { navigateBack() }
-            tvPgInfo.text = movieDetails?.rated
-            tvName.text = movieDetails?.nameMovie
-            tvFilmDescription.text = movieDetails?.description
-            tvGenres.text = movieDetails?.movieGenre
-            rbReviewRate.rating = movieDetails?.rating ?: 0f
-            tvReview.text = resources.getString(R.string.reviews, movieDetails?.reviews.toString())
+            tvPgInfo.text = resources.getString(R.string.pg_info, movieDetails?.pgAge.toString())
+            tvName.text = movieDetails?.title
+            tvFilmDescription.text = movieDetails?.storyLine
+            tvGenres.text = movieDetails?.genres?.joinToString { it.name }
+            rbReviewRate.rating = movieDetails?.rating?.toFloat() ?: 0f
+            tvReview.text = resources.getString(R.string.reviews, movieDetails?.reviewCount.toString())
+            //hide 'Cast" for films with no actors info
+            tvCastDescriptionHeader.visibility = if (movieDetails?.actors?.isNotEmpty() == true) View.VISIBLE else View.GONE
 
             binding.ivMovieImage.let {
                 Glide.with(requireContext())
-                    .load(movieDetails?.detailPoster)
+                    .load(movieDetails?.detailImageUrl)
                     .into(it)
             }
         }
@@ -68,14 +70,14 @@ class FragmentMovieDetails : Fragment() {
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
-         * @param movie Movie to show details.
+         * @param movieData Movie to show details.
          * @return A new instance of fragment MovieDetailsFragment.
          */
         @JvmStatic
-        fun newInstance(movie: Movie) =
+        fun newInstance(movieData: MovieData) =
             FragmentMovieDetails().apply {
                 arguments = Bundle().apply {
-                    putParcelable(MOVIE_PARAM, movie)
+                    putParcelable(MOVIE_PARAM, movieData)
                 }
             }
     }
